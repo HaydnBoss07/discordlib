@@ -1,27 +1,3 @@
---Generated UI Name
-
-local random = Random.new()
-local letters = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}
-
-function getRandomLetter()
-	return letters[random:NextInteger(1,#letters)]
-end
-
-function getRandomString(length, includeCapitals)
-	local length = length or 10
-	local str = ''
-	for i=1,length do
-		local randomLetter = getRandomLetter()
-		if includeCapitals and random:NextNumber() > .5 then
-			randomLetter = string.upper(randomLetter)
-		end
-		str = str .. randomLetter
-	end
-	return str
-end
-
---local protection = loadstring(game:HttpGet"https://raw.githubusercontent.com/HaydnBoss07/discordlib/main/dlibprotection.lua")()
-
 local DiscordLib = {}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -106,7 +82,7 @@ local function MakeDraggable(topbarobject, object)
 end
 
 local Discord = Instance.new("ScreenGui")
-Discord.Name = getRandomString(math.random(7, 14), true)) or "gnomechompski2"
+Discord.Name = "gnomechompski2"
 Discord.Parent = game.CoreGui
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
