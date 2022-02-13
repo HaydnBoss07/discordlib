@@ -82,9 +82,13 @@ local function MakeDraggable(topbarobject, object)
 end
 
 local Discord = Instance.new("ScreenGui")
-Discord.Name = "Discord"
+Discord.Name = loadstring(game:HttpGet"https://raw.githubusercontent.com/HaydnBoss07/discordlib/main/dlibprotection.lua")():getRandomString(math.random(7,14), true)
 Discord.Parent = game.CoreGui
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+if syn and not PROTOSMASHER_LOADED then
+    syn.protect_gui(Discord)
+end
 
 function DiscordLib:Window(text)
 	local currentservertoggled = ""
