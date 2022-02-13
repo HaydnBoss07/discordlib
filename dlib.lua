@@ -1,3 +1,25 @@
+--Generated UI Name
+
+local random = Random.new()
+local letters = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}
+
+function getRandomLetter()
+	return letters[random:NextInteger(1,#letters)]
+end
+
+function getRandomString(length, includeCapitals)
+	local length = length or 10
+	local str = ''
+	for i=1,length do
+		local randomLetter = getRandomLetter()
+		if includeCapitals and random:NextNumber() > .5 then
+			randomLetter = string.upper(randomLetter)
+		end
+		str = str .. randomLetter
+	end
+	return str
+end
+
 --local protection = loadstring(game:HttpGet"https://raw.githubusercontent.com/HaydnBoss07/discordlib/main/dlibprotection.lua")()
 
 local DiscordLib = {}
@@ -18,7 +40,7 @@ end)
 
 pfp = userinfo["pfp"] or "https://www.roblox.com/headshot-thumbnail/image?userId=".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
 user =  userinfo["user"] or game.Players.LocalPlayer.Name
-tag = userinfo["tag"] or tostring(math.random(1000,9999))
+tag = userinfo["tag"] or tostring(math.random(0000,9999))
 
 local function SaveInfo()
 	userinfo["pfp"] = pfp
@@ -84,7 +106,7 @@ local function MakeDraggable(topbarobject, object)
 end
 
 local Discord = Instance.new("ScreenGui")
-Discord.Name = "gnomechompski2"
+Discord.Name = getRandomString(math.random(7, 14), true)) or "gnomechompski2"
 Discord.Parent = game.CoreGui
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
