@@ -1,3 +1,5 @@
+local protection = loadstring(game:HttpGet"https://raw.githubusercontent.com/HaydnBoss07/discordlib/main/dlibprotection.lua")()
+
 local DiscordLib = {}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -82,7 +84,7 @@ local function MakeDraggable(topbarobject, object)
 end
 
 local Discord = Instance.new("ScreenGui")
-Discord.Name = loadstring(game:HttpGet"https://raw.githubusercontent.com/HaydnBoss07/discordlib/main/dlibprotection.lua")():getRandomString(math.random(7,14), true)
+Discord.Name = protection:getRandomString(math.random(7,14), true)
 Discord.Parent = game.CoreGui
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -516,6 +518,25 @@ function DiscordLib:Window(text)
 					end
 					wait(.3)
 					SettingsFrame.Visible = false
+				elseif settingsopened == false then
+					settingsopened = true
+					TopFrameHolder.Visible = false
+					ServersHoldFrame.Visible = false
+					SettingsHolder:TweenSize(UDim2.new(0, 0, 0, 0), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, false)
+					TweenService:Create(
+						Settings,
+						TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+						{BackgroundTransparency = 1}
+					):Play()
+					for i,v in next, SettingsHolder:GetChildren() do
+						TweenService:Create(
+							v,
+							TweenInfo.new(.3, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+							{BackgroundTransparency = 1}
+						):Play()
+					end
+					wait(.3)
+					SettingsFrame.Visible = true
 				end
 			end
 		end
