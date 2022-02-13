@@ -516,6 +516,7 @@ function DiscordLib:Window(text)
 					end
 					wait(.3)
 					SettingsFrame.Visible = false
+				end
 			end
 		end
 	)
