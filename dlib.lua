@@ -1,4 +1,4 @@
-local protection = loadstring(game:HttpGet"https://raw.githubusercontent.com/HaydnBoss07/discordlib/main/dlibprotection.lua")()
+--local protection = loadstring(game:HttpGet"https://raw.githubusercontent.com/HaydnBoss07/discordlib/main/dlibprotection.lua")()
 
 local DiscordLib = {}
 local UserInputService = game:GetService("UserInputService")
